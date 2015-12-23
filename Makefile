@@ -1,7 +1,7 @@
 CC=clang
-CFLAGS=-c -Wall
+CFLAGS=-c -Wall -pedantic -I include -g -std=gnu11
 LDFLAGS=
-SOURCES=main.c
+SOURCES=src/main.c src/source.c src/lex.c src/debug.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=jbcc
 

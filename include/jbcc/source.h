@@ -16,16 +16,21 @@
  *
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
+#ifndef JBCC_SOURCE_H
+#define JBCC_SOURCE_H
 
-#include <sys/stat.h>
-#include <fcntl.h>
+typedef struct source_s {
+	char *buf;
+	size_t len;
+	size_t pos;
+	int    l_nr;
+} source_t;
 
-int main(int argc, char *argv[]) {
+source_t *src_new(const char *path);
+char src_next_char(source_t *s);
+void src_back_char(source_t *s);
+void src_inc_l_nr(source_t *s);
+int src_get_l_nr(source_t *s);
+char *src_get_lex(source_t *s, size_t start, size_t end);
 
-	return 0;
-}
-
+#endif
